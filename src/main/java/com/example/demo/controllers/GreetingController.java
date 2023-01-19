@@ -19,12 +19,12 @@ public class GreetingController {
 
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-
         return new Greeting(counter.incrementAndGet(), String.format(this.template, name));
     }
-    @GetMapping("/get-evento")
-    public Evento getInfoEvento() {
+    @GetMapping("/get")
+    public String get() {
         Evento infoEvento = new Evento();
-        return infoEvento.getEvento();
+
+        return "Hello World";
     }
 }

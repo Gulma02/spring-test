@@ -1,10 +1,20 @@
 package com.example.demo.models;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Eventos")
 public class Evento {
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id = 0;
+    @Column
     private String titulo = "";
+    @Column
     private String fecha = "";
+    @Column
     private String lugar = "";
+    @Column
     private Integer idArtista = 0;
 
     public Evento() {
