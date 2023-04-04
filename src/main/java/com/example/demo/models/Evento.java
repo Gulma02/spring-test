@@ -1,42 +1,35 @@
 package com.example.demo.models;
-import javax.persistence.*;
+import com.example.demo.repositories.SQLRepository;
+import java.sql.PreparedStatement;
 
-@Entity
-@Table(name = "Eventos")
-public class Evento {
-    @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Evento extends SQLRepository {
+    private final String table = "eventos";
+
+    // Propiedades de la clase
     private long id = 0;
-    @Column
     private String titulo = "";
-    @Column
     private String fecha = "";
-    @Column
     private String lugar = "";
-    @Column
     private Integer idArtista = 0;
 
     public Evento() {
 
     }
-    public Boolean crearEvento(long id, String titulo, String fecha, String lugar, Integer idArtista) {
-        this.id = id;
-        this.titulo = titulo;
-        this.fecha = fecha;
-        this.lugar = lugar;
-        this.idArtista = idArtista;
+
+    public Boolean crearEvento(String titulo, String fecha, String lugar, Integer idArtista) throws Exception {
+        PreparedStatement statement = null;
 
         return true;
     }
 
     public Evento getEvento() {
-        this.id = 1;
-        this.titulo = "Duki Velez";
-        this.fecha = "2022/10/06";
-        this.lugar = "Velez";
-        this.idArtista = 1;
+        Evento evento = new Evento();
+        evento.id = 1;
+        evento.titulo = "Duki Velez";
+        evento.fecha = "2022/10/06";
+        evento.lugar = "Velez";
+        evento.idArtista = 1;
 
-        return this;
+        return evento;
     }
 }
